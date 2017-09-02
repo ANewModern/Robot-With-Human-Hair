@@ -1,0 +1,942 @@
+$armor: #FEF534;
+$limbs: #B4B4BC;
+$feet: #707176;
+$eyes: #29C4FC;
+$hair: #65504D;
+$heart: #85F6FF;
+$circle: #35353D;
+
+@mixin borders($size, $color) {
+  border-top: $size solid $color;
+  border-bottom: $size solid $color;
+  border-left: $size solid $color;
+  border-right: $size solid $color;
+}
+
+@mixin divs($width, $height, $color, $rad, $index) {
+  position: absolute;
+  width: $width;
+  height: $height;
+  background: $color;
+  border-radius: $rad;
+  z-index: $index;
+}
+
+.flip-horizontal {
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -ms-filter: fliph;
+  /*IE*/
+  filter: fliph;
+  /*IE*/
+}
+
+html,
+body {
+  background: #F1F3F0;
+}
+
+.box {
+  position: relative;
+  margin: auto;
+  display: block;
+  margin-top: 8%;
+  margin-bottom: 20%;
+  width: 600px;
+  height: 420px;
+  background: none;
+}
+
+.hair1 {
+  @include divs(30.1%, 30%, $hair, 0, 2);
+  top: -25%;
+  left: 35%;
+  -webkit-clip-path: ellipse(50% 56% at 50% 100%);
+  clip-path: ellipse(50% 56% at 50% 100%);
+}
+
+.hair1-border {
+  @include divs(31%, 31%, black, 0, 0);
+  top: -26%;
+  left: 34.5%;
+  -webkit-clip-path: ellipse(50% 56% at 50% 100%);
+  clip-path: ellipse(50% 56% at 50% 100%);
+}
+
+.spike {
+  @include divs(10%, 10%, $hair, 0, 3);
+  top: -16%;
+  left: 38%;
+  -webkit-clip-path: polygon(13% 43%, 8% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(13% 43%, 8% 0, 100% 100%, 0% 100%);
+  transform: rotate(-18deg);
+}
+
+.spike-border {
+  @include divs(11%, 11%, black, 0, 0);
+  top: -17%;
+  left: 37.5%;
+  -webkit-clip-path: polygon(13% 43%, 8% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(13% 43%, 8% 0, 100% 100%, 0% 100%);
+  transform: rotate(-18deg);
+}
+
+.hair2 {
+  @include divs(30%, 45%, $hair, 20px, 2);
+  left: 35%;
+}
+
+.hair2-border {
+  @include divs(31%, 46%, black, 20px, 0);
+  left: 34.5%;
+}
+
+.left-spike {
+  @include divs(9%, 10%, $hair, 0, 5);
+  
+  left: 40%;
+  -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+}
+
+.left-spike-border {
+  @include divs(10%, 11%, black, 0, 4);
+  
+  left: 40%;
+  -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+}
+
+.middle-spike {
+  @include divs(9%, 10%, $hair, 0, 5);
+  
+  -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0);
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+}
+
+.spike-1 {
+  left: 43%;
+}
+
+.spike-1-border {
+  @include divs(10%, 11%, black, 0, 4);
+  
+  -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0);
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  left: 42.5%;
+}
+
+.spike-2 {
+  left: 49%;
+}
+
+.spike-2-border {
+  @include divs(10%, 11%, black, 0, 4);
+  
+  -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0);
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  left: 48.5%;
+}
+
+.right-spike {
+  @include divs(9%, 10%, $hair, 0, 5);
+  
+  right: 38%;
+  -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+}
+
+.right-spike-border {
+  @include divs(10%, 10%, black, 0, 4);
+  
+  top: 0.5%;
+  right: 38%;
+  -webkit-clip-path: polygon(0 0, 0% 100%, 100% 0);
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+}
+
+.head {
+  @include divs(20%, 30%, $armor, 20px, 2);
+  top: 10%;
+  left: 40%;
+  .head-copy {
+    @include divs(100%, 120%, $armor, 20px, 4);
+    @include borders(2px, black);
+    bottom: 0%;
+  }
+  .beard {
+    @include divs(110%, 40%, $hair, 0, 5);
+    @include borders(2px, black);
+    bottom: 0%;
+    left: -5%;
+    border-top: 0px solid black;
+  }
+  .unsmile {
+    @include divs(30%, 20%, $hair, 50%, 6);
+    border-top: 2px solid black;
+    bottom: 3%;
+    left: 15%;
+  }
+  .right-stache {
+    @include divs(30%, 40%, $hair, 0, 5);
+    @include borders(2px, black);
+    bottom: 0%;
+    left: -20%;
+    border-right: 0px solid black;
+    -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  }
+  
+  .right-stache-border {
+    @include divs(31%, 40%, black, 0, 4);
+    @include borders(2px, black);
+    bottom: 1.5%;
+    left: -19.5%;
+    border-right: 0px solid black;
+    -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  }
+  .left-top-stache {
+    @include divs(90%, 35%, $hair, 0, 5);
+    bottom: 15%;
+    left: -5%;
+    border-bottom: 0px solid black;
+    -webkit-clip-path: polygon(0 100%, 0 0, 100% 100%);
+    clip-path: polygon(0 100%, 0 0, 100% 100%);
+  }
+  .left-top-stache-border {
+    @include divs(91%, 36%, black, 0, 4);
+    bottom: 15.5%;
+    left: -5.5%;
+    border-bottom: 0px solid black;
+    -webkit-clip-path: polygon(0 100%, 0 0, 100% 100%);
+    clip-path: polygon(0 100%, 0 0, 100% 100%);
+  }
+  .fst-top-stache {
+    @include divs(55%, 15%, $hair, 0, 5);
+    bottom: 36%;
+    left: 8%;
+    -webkit-clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  }
+  .fst-top-stache-border {
+    @include divs(56%, 16%, black, 0, 4);
+    bottom: 36.5%;
+    left: 7.5%;
+    -webkit-clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  }
+  .snd-top-stache {
+    @include divs(55%, 15%, $hair, 0, 5);
+    bottom: 36%;
+    left: 36%;
+    -webkit-clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  }
+  .snd-top-stache-border {
+    @include divs(56%, 16%, black, 0, 4);
+    bottom: 36%;
+    left: 36%;
+    -webkit-clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  }
+  .right-top-stache {
+    @include divs(90%, 35%, $hair, 0, 5);
+    bottom: 15%;
+    right: -6.5%;
+    -webkit-clip-path: polygon(0 100%, 0 0, 100% 100%);
+    clip-path: polygon(0 100%, 0 0, 100% 100%);
+  }
+  .right-top-stache-border {
+    @include divs(91%, 36%, black, 0, 4);
+    bottom: 16.5%;
+    right: -8.5%;
+    -webkit-clip-path: polygon(0 100%, 0 0, 100% 100%);
+    clip-path: polygon(0 100%, 0 0, 100% 100%);
+  }
+  .eye {
+    @include divs(38%, 38%, $eyes, 50%, 5);
+    @include borders(2px, black);
+  }
+  .left-eye {
+    left: -10%;
+  }
+  .right-eye {
+    right: -10%;
+  }
+  .inner-eye1 {
+    @include divs(20%, 50%, black, 50%, 3);
+    top: 25%;
+    left: 50%;
+  }
+  .right-eye-lid {
+    @include divs(120%, 50%, $armor, 0, 3);
+    @include borders(2px, black);
+    right: -4%;
+    top: -8%;
+    -webkit-clip-path: circle(50% at 50% 100%);
+    clip-path: circle(50% at 50% 100%);
+    transform: rotate(-20deg);
+  }
+  .bottom-right-eye-lid {
+    @include divs(115%, 25%, $armor, 0, 3);
+    @include borders(2px, black);
+    bottom: 0%;
+    left: -5%;
+    -webkit-clip-path: circle(50% at 50% 100%);
+    clip-path: circle(50% at 50% 100%);
+    transform: rotate(170deg);
+  }
+  .inner-eye2 {
+    @include divs(20%, 50%, black, 50%, 3);
+    top: 25%;
+    right: 50%;
+  }
+  .left-eye-lid {
+    @include divs(120%, 50%, $armor, 0, 3);
+    @include borders(2px, black);
+    left: -4%;
+    top: -8%;
+    -webkit-clip-path: circle(50% at 50% 100%);
+    clip-path: circle(50% at 50% 100%);
+    transform: rotate(20deg);
+  }
+  .bottom-left-eye-lid {
+    @include divs(115%, 25%, $armor, 0, 3);
+    @include borders(2px, black);
+    bottom: 0%;
+    right: -5%;
+    -webkit-clip-path: circle(50% at 50% 100%);
+    clip-path: circle(50% at 50% 100%);
+    transform: rotate(190deg);
+  }
+}
+
+.neck-1 {
+  @include divs(2%, 6%, $feet, 0, 3);
+  @include borders(2px, black);
+  
+  left: 49%;
+  top: 39.5%;
+}
+
+.neck-2 {
+  @include divs(2.3%, 2%, $feet, 50%, 3);
+  
+  border-bottom: 2px solid black;
+  left: 49.3%;
+  top: 45%;
+}
+
+.collar-1 {
+  @include divs(4%, 4%, $limbs, 50%, 2);
+  @include borders(2px, black);
+
+  border-bottom: 0px;
+  left: 48%;
+  top: 45%;
+}
+
+.chest {
+  @include divs(12%, 20%, $feet, 0, 1);
+  @include borders(2px, black);
+  
+  left: 44%;
+  top: 47%;
+}
+
+.chest-armor {
+  @include divs(10%, 27%, $armor, 0, 2);
+  @include borders(2px, black);
+}
+
+.chest-left {
+  left: 35%;
+  top: 47%;
+  transform: rotate(-8deg);
+}
+
+.chest-right {
+  right: 35%;
+  top: 47%;
+  transform: rotate(8deg);
+}
+
+.heart-border {
+  @include divs(6%, 9%, $limbs, 50%, 3);
+  @include borders(2px, black);
+  
+  left: 46.8%;
+  top: 53%;
+  
+  .heart {
+    @include divs(80%, 80%, $heart, 50%, 4);
+    @include borders(2px, black);
+    
+    left: 3.5%;
+    top: 3.5%;
+  }
+  
+}
+
+.arm {
+  @include divs(25%, 5%, $limbs, 0, 1);
+  @include borders(2px, black);
+ 
+}
+
+.left-arm {
+  top: 60%;
+  left: 12%;
+  
+  transform: rotate(-25deg);
+  
+  .section2 {
+    @include divs(10%, 100%, $limbs, 50%, 2);
+    
+    border-right: 2px solid black;
+  }
+  
+  .part-1 {
+    left: -5%;
+    border-left: 2px solid black;
+  }
+  .part-2 {
+    left: 5%;
+  }
+  .part-3 {
+    left: 15%;
+  }
+  .part-4 {
+    left: 25%;
+  }
+  .part-5 {
+    left: 35%;
+  }
+  .part-6 {
+    left: 45%;
+  }
+  .part-7 {
+    left: 55%;
+  }
+  .part-8 {
+    left: 65%;
+  }
+  .part-9 {
+    left: 75%;
+  }
+  .part-10 {
+    left: 85%;
+  }
+}
+
+.right-arm {
+  top: 60%;
+  right: 12%;
+  
+  transform: rotate(25deg);
+  
+  .section {
+    @include divs(10%, 100%, $limbs, 50%, 2);
+    
+    border-left: 2px solid black;
+  }
+  
+  .part-1 {
+    left: 5%;
+  }
+  .part-2 {
+    left: 15%;
+  }
+  .part-3 {
+    left: 25%;
+  }
+  .part-4 {
+    left: 35%;
+  }
+  .part-5 {
+    left: 45%;
+  }
+  .part-6 {
+    left: 55%;
+  }
+  .part-7 {
+    left: 65%;
+  }
+  .part-8 {
+    left: 75%;
+  }
+  .part-9 {
+    left: 85%;
+  }
+  .part-10 {
+    left: 95%;
+    border-right: 2px solid black;
+  }
+}
+
+.hand-armor {
+  @include divs(13%, 10%, $armor, 0, 3);
+}
+
+.hand-armor-bot {
+  @include divs(13%, 3%, $armor, 0, 4);
+  
+  -webkit-clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+}
+
+.hand-armor-bot-border-left {
+  @include divs(14%, 4%, black, 0, 3);
+  
+  top: 76.5%;
+  left: 4.5%;
+  transform: rotate(-35deg);
+  -webkit-clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+}
+
+.left-side {
+  top: 77%;
+  left: 5%;
+  transform: rotate(-35deg);
+}
+
+.left-hand {
+  top: 68%;
+  left: 3%;
+  transform: rotate(-25deg);
+  -webkit-clip-path: polygon(0 0, 100% 14%, 100% 86%, 0% 100%);
+  clip-path: polygon(0 0, 100% 14%, 100% 86%, 0% 100%);
+}
+
+.hand-armor-border-left {
+  @include divs(14%, 12%, black, 0, 2);
+  top: 67.5%;
+  left: 2.5%;
+  transform: rotate(-25deg);
+  -webkit-clip-path: polygon(0 0, 100% 14%, 100% 86%, 0% 100%);
+  clip-path: polygon(0 0, 100% 14%, 100% 86%, 0% 100%);
+}
+
+.right-hand {
+  top: 68%;
+  right: 3%;
+  transform: rotate(25deg);
+  -webkit-clip-path: polygon(0 14%, 100% 0, 100% 100%, 0 86%);
+  clip-path: polygon(0 14%, 100% 0, 100% 100%, 0 86%);
+}
+
+.hand-armor-border-right {
+  @include divs(14%, 12%, black, 0, 2);
+  top: 67.5%;
+  right: 2.5%;
+  transform: rotate(25deg);
+  -webkit-clip-path: polygon(0 14%, 100% 0, 100% 100%, 0 86%);
+  clip-path: polygon(0 14%, 100% 0, 100% 100%, 0 86%);
+}
+
+.hand-armor-bot {
+  @include divs(13%, 3%, $armor, 0, 4);
+  
+  -webkit-clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+}
+
+.hand-armor-bot-border-right {
+  @include divs(14%, 4%, black, 0, 3);
+  
+  top: 76.5%;
+  right: 4.5%;
+  transform: rotate(35deg);
+  -webkit-clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+}
+
+.right-side {
+  top: 77%;
+  right: 5%;
+  transform: rotate(35deg);
+}
+
+.fingers {
+  @include divs(5%, 9%, $limbs, 0, 2);
+  @include borders(2px, black);
+}
+
+.left-fingers {
+  top: 74%;
+  left: -2%;
+  transform: rotate(-27deg);
+}
+
+.right-fingers {
+  top: 74%;
+  right: -2%;
+  transform: rotate(27deg);
+}
+
+.fingers-bot {
+  @include divs(6%, 4%, $limbs, 0, 4);
+  @include borders(2px, black);
+}
+
+.left-fingers-bot {
+  top: 82.9%;
+  left: -0.5%;
+  transform: rotate(-22deg);
+}
+
+.right-fingers-bot {
+  top: 82.9%;
+  right: -0.5%;
+  transform: rotate(22deg);
+}
+
+.fingers-front {
+  @include divs(3%, 10%, $limbs, 0, 5);
+  
+  -webkit-clip-path: polygon(25% 0, 75% 0, 85% 100%, 15% 100%);
+  clip-path: polygon(25% 0, 75% 0, 85% 100%, 15% 100%);
+}
+
+.fingers-front-border {
+  @include divs(5%, 13%, black, 0, 4);
+  
+  -webkit-clip-path: polygon(25% 0, 75% 0, 85% 100%, 15% 100%);
+  clip-path: polygon(25% 0, 75% 0, 85% 100%, 15% 100%);
+}
+
+.fingers-border-right {
+  @include divs(5%, 13%, black, 0, 4);
+  
+  top: 77%;
+  right: -4.8%;
+  transform: rotate(25deg);
+  -webkit-clip-path: polygon(25% 0, 75% 0, 85% 100%, 15% 100%);
+  clip-path: polygon(25% 0, 75% 0, 85% 100%, 15% 100%);
+}
+
+.fingers-left {
+  top: 77%;
+  left: -4.8%;
+  transform: rotate(-25deg);
+}
+
+
+
+.left-fingers-front {
+  top: 78%;
+  left: -4%;
+  transform: rotate(-25deg);
+}
+
+.right-fingers-front {
+  top: 78%;
+  right: -4%;
+  transform: rotate(25deg);
+}
+
+.circle-hand {
+  @include divs(3%, 4%, $feet, 50%, 4);
+  @include borders(2px, black);
+}
+
+.circle-left {
+  top: 82.8%;
+  left: 4.5%;
+}
+
+.circle-right {
+  top: 82.8%;
+  right: 4.5%;
+}
+
+.inner-circle {
+  @include divs(60%, 60%, $limbs, 50%, 5);
+  @include borders(2px, black);
+  
+  top: 10.5%;
+  left: 10.5%;
+}
+
+.spine {
+  @include divs(5%, 12%, $limbs, 0, 3);
+  @include borders(2px, black);
+  
+  left: 47.2%;
+  top: 67.3%;
+  
+  .spine-section {
+    @include divs(100%, 20%, $limbs, 50%, 4);
+    
+    border-top: 2px solid black; 
+  }
+  
+  .sect-1 {
+    top: 10%;
+  }
+  .sect-2 {
+    top: 30%;
+  }
+  .sect-3 {
+    top: 50%;
+  }
+  .sect-4 {
+    top: 70%;
+  }
+  .sect-5 {
+    top: 90%;
+    
+  }
+}
+
+.pelvis {
+  @include divs(20%, 20%, $armor, 0, 5);
+  -webkit-clip-path: polygon(100% 0, 100% 50%, 50% 100%, 0 50%, 0 0);
+  clip-path: polygon(100% 0, 100% 50%, 50% 100%, 0 50%, 0 0);
+  left: 40%;
+  top: 81%;
+  
+}
+
+.pelvis-border {
+    @include divs(21.6%, 21.6%, black, 0, 4);
+    -webkit-clip-path: polygon(100% 0, 100% 50%, 50% 100%, 0 50%, 0 0);
+    clip-path: polygon(100% 0, 100% 50%, 50% 100%, 0 50%, 0 0); 
+    top: 80.2%;
+    left: 39.2%;
+}
+
+.leg {
+  @include divs(4%, 30%, $limbs, 0, 3);
+  @include borders(2px, black);
+}
+
+.left-leg {
+  top: 92%;
+  left: 36%;
+  transform: rotate(36deg);
+}
+
+.section-leg {
+  @include divs(100%, 5%, $limbs, 50%, 6);
+  border-top: 2px solid black;
+}
+
+.sect-leg-1 {
+  top: 10%;
+}
+.sect-leg-2 {
+  top: 20%;
+}
+.sect-leg-3 {
+  top: 30%;
+}
+.sect-leg-4 {
+  top: 40%;
+}
+.sect-leg-5 {
+  top: 50%;
+}
+.sect-leg-6 {
+  top: 60%;
+}
+.sect-leg-7 {
+  top: 70%;
+}
+.sect-leg-8 {
+  top: 80%;
+}
+.sect-leg-9 {
+  top: 90%;
+}
+
+
+.right-leg {
+  top: 92%;
+  right: 36%;
+  transform: rotate(-36deg);
+}
+
+.knee-left {
+  @include divs(10%, 20%, $armor, 0, 5);
+  
+  -webkit-clip-path: polygon(22% 13%, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(22% 13%, 100% 0, 100% 100%, 0% 100%);
+  top: 115.5%;
+  left: 25.5%;
+}
+
+.knee-left-border {
+  @include divs(11%, 21%, black, 0, 4);
+  
+  -webkit-clip-path: polygon(22% 13%, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(22% 13%, 100% 0, 100% 100%, 0% 100%);  
+  top: 115%;
+  left: 25%;
+}
+
+.knee-left-side {
+  @include divs(3%, 20%, $armor, 0, 5);
+  
+  top: 115.5%;
+  right: 36%;
+  -webkit-clip-path: polygon(0 19%, 100% 0, 100% 100%, 0 87%);
+  clip-path: polygon(0 19%, 100% 0, 100% 100%, 0 87%);
+}
+
+.knee-left-side-border {
+  @include divs(3.5%, 21%, black, 0, 4);
+  
+  top: 115%;
+  right: 36%;
+  -webkit-clip-path: polygon(0 19%, 100% 0, 100% 100%, 0 87%);
+  clip-path: polygon(0 19%, 100% 0, 100% 100%, 0 87%);
+}
+
+.knee-right {
+  @include divs(10%, 20%, $armor, 0, 5);
+  
+  -webkit-clip-path: polygon(0 0, 78% 13%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 78% 13%, 100% 100%, 0% 100%);
+  top: 115.5%;
+  right: 25.5%;
+}
+
+.knee-right-border {
+  @include divs(11%, 21%, black, 0, 4);
+  
+  -webkit-clip-path: polygon(0 0, 78% 13%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 78% 13%, 100% 100%, 0% 100%);
+  top: 115%;
+  right: 25%;
+}
+
+.knee-right-side {
+  @include divs(3%, 20%, $armor, 0, 5);
+  
+  top: 115.5%;
+  left: 36%;
+  -webkit-clip-path: polygon(0 0, 100% 19%, 100% 87%, 0% 100%);
+  clip-path: polygon(0 0, 100% 19%, 100% 87%, 0% 100%);
+}
+
+.knee-right-side-border {
+  @include divs(3.5%, 21%, black, 0, 4);
+  
+  top: 115%;
+  left: 36%;
+  -webkit-clip-path: polygon(0 0, 100% 19%, 100% 87%, 0% 100%);
+  clip-path: polygon(0 0, 100% 19%, 100% 87%, 0% 100%);
+}
+
+.left-foot {
+  @include divs(15%, 30%, $feet, 0, 6);
+  
+  top: 115%;
+  left: 15%;
+  -webkit-clip-path: ellipse(100% 40% at 100% 98%);
+  clip-path: ellipse(100% 40% at 100% 98%);
+}
+
+.left-foot-border {
+  @include divs(16%, 32%, black, 0, 5);
+  
+  top: 113.4%;
+  left: 14.5%;
+  -webkit-clip-path: ellipse(100% 40% at 100% 98%);
+  clip-path: ellipse(100% 40% at 100% 98%);
+}
+
+.left-side-foot {
+  @include divs(8%, 12.7%, $feet, 0, 6);
+  
+  top: 132.4%;
+  left: 30%;
+  -webkit-clip-path: ellipse(100% 100% at 0% 100%);
+  clip-path: ellipse(100% 100% at 0% 100%);
+}
+
+.left-side-foot-border {
+  @include divs(8.5%, 13.5%, black, 0, 5);
+  
+  top: 132%;
+  left: 30%;
+  -webkit-clip-path: ellipse(100% 100% at 0% 100%);
+  clip-path: ellipse(100% 100% at 0% 100%);
+}
+
+.left-bearing {
+  @include divs(6%, 9%, $feet, 50%, 6);
+  @include borders(2px, black);
+  
+  top: 129%;
+  left: 36%;
+}
+
+.right-foot {
+  @include divs(15%, 30%, $feet, 0, 6);
+  
+  top: 115%;
+  right: 15%;
+  
+  -webkit-clip-path: ellipse(98% 42% at 0% 100%);
+  clip-path: ellipse(98% 42% at 0% 100%);
+}
+
+.right-foot-border {
+  @include divs(16%, 32%, black, 0, 5);
+  
+  top: 113.4%;
+  right: 14.5%;
+  -webkit-clip-path: ellipse(98% 42% at 0% 100%);
+  clip-path: ellipse(98% 42% at 0% 100%);
+}
+
+.right-side-foot {
+  @include divs(8%, 12.7%, $feet, 0, 6);
+  
+  top: 132.4%;
+  right: 30%;
+  -webkit-clip-path: ellipse(100% 100% at 100% 100%);
+  clip-path: ellipse(100% 100% at 100% 100%);
+}
+
+.right-side-foot-border {
+  @include divs(8.5%, 13.5%, black, 0, 5);
+  
+  top: 132%;
+  right: 30%;
+  -webkit-clip-path: ellipse(100% 100% at 100% 100%);
+  clip-path: ellipse(100% 100% at 100% 100%);
+}
+
+.right-bearing {
+  @include divs(6%, 9%, $feet, 50%, 6);
+  @include borders(2px, black);
+  
+  top: 129%;
+  right: 36%;
+}
+
+
+.left-thumb {
+  @include divs(10%, 8%, $limbs, 0, 0);
+  @include borders(2px, black);
+  
+  top: 78%;
+  left: -4%;
+  transform: rotate(45deg);
+}
+
+.right-thumb {
+  @include divs(10%, 8%, $limbs, 0, 0);
+  @include borders(2px, black);
+  
+  top: 78%;
+  right: -4%;
+  transform: rotate(-45deg);
+}
